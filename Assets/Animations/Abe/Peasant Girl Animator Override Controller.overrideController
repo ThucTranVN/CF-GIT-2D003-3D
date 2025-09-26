@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Peasant Girl Animator Override Controller
+  m_Controller: {fileID: 9100000, guid: 5a71fb985a22c4cd2b6cd193370ea73d, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 268ed3e36882b4e64a0b2eeff8893bc6, type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 6aea476e43bcb4aab81ac1dcd481b466, type: 3}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: b16f8ec663db34ec1b02fc5b5166c77b, type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 328e2744a0ccc41dfab053a3ae9142f1, type: 3}
