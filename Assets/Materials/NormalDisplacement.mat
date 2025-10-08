@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Displacement
-  m_Shader: {fileID: -6465566751694194690, guid: 40536b6674ff14e738bbc7ca43ef61e3, type: 3}
+  m_Name: NormalDisplacement
+  m_Shader: {fileID: -6465566751694194690, guid: 470049d3661604517bd04ba0c7f59841, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -123,7 +123,7 @@ Material:
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &26500138932258000
+--- !u!114 &7269041835020964411
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
