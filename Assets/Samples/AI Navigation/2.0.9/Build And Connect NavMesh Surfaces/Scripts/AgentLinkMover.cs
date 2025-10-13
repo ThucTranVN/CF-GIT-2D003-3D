@@ -20,10 +20,14 @@ namespace Unity.AI.Navigation.Samples
     {
         public OffMeshLinkMoveMethod m_Method = OffMeshLinkMoveMethod.Parabola;
         public AnimationCurve m_Curve = new AnimationCurve();
+        private Animator animator;
+        private NavMeshAgent agent;
 
         IEnumerator Start()
         {
-            NavMeshAgent agent = GetComponent<NavMeshAgent>();
+            animator = GetComponent<Animator>();
+            agent = GetComponent<NavMeshAgent>();
+
             agent.autoTraverseOffMeshLink = false;
             while (true)
             {
@@ -48,6 +52,11 @@ namespace Unity.AI.Navigation.Samples
             Vector3 endPos = data.endPos + Vector3.up * agent.baseOffset;
             while (agent.transform.position != endPos)
             {
+                var turn = agent.steeringTarget;
+                Vector3 direction = (turn - transform.position).normalized;
+                Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 0.1f);
+
                 agent.transform.position =
                     Vector3.MoveTowards(agent.transform.position, endPos, agent.speed * Time.deltaTime);
                 yield return null;
@@ -62,6 +71,7 @@ namespace Unity.AI.Navigation.Samples
             float normalizedTime = 0.0f;
             while (normalizedTime < 1.0f)
             {
+                animator.SetBool("Jumping", true);
                 float yOffset = height * 4.0f * (normalizedTime - normalizedTime * normalizedTime);
                 agent.transform.position = Vector3.Lerp(startPos, endPos, normalizedTime) + yOffset * Vector3.up;
                 normalizedTime += Time.deltaTime / duration;
@@ -81,6 +91,14 @@ namespace Unity.AI.Navigation.Samples
                 agent.transform.position = Vector3.Lerp(startPos, endPos, normalizedTime) + yOffset * Vector3.up;
                 normalizedTime += Time.deltaTime / duration;
                 yield return null;
+            }
+        }
+
+        private void Update()
+        {
+            if (!agent.isOnOffMeshLink)
+            {
+                animator.SetBool("Jumping", false);
             }
         }
     }
