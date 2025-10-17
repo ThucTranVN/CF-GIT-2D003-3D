@@ -920,6 +920,7 @@ GameObject:
   - component: {fileID: 1784949225}
   - component: {fileID: 1784949224}
   - component: {fileID: 1784949228}
+  - component: {fileID: 1784949229}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1027,6 +1028,18 @@ MonoBehaviour:
   healthText: {fileID: 1569890530}
   weaponNameText: {fileID: 1379410492}
   weaponAmmoText: {fileID: 485145465}
+--- !u!225 &1784949229
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784949223}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -6,3 +6,12 @@ public enum ListenType
     ON_UPDATE_PLAYER_HEALTH,
     ON_PLAYER_CHANGE_WEAPON
 }
+
+public enum UIType
+{
+    Unknown = 0,
+    Screen = 1,
+    Popup = 2,
+    Notify = 3,
+    Overlap = 4
+}
