@@ -4,7 +4,7 @@ using UnityEngine;
 public class UIManager : BaseManager<UIManager>
 {
     public GameObject cScreen, cPopup, cNotify, cOverlap;
-
+    public Camera UICamera;
     private Dictionary<string, BaseScreen> screens = new Dictionary<string, BaseScreen>();
     private Dictionary<string, BasePopup> popups = new Dictionary<string, BasePopup>();
     private Dictionary<string, BaseNotify> notifies = new Dictionary<string, BaseNotify>();

@@ -40,14 +40,31 @@ public class NotifyLoadingGame : BaseNotify
 
             if(asyncOperation.progress >= 0.9f)
             {
-                if (UIManager.HasInstance)
-                {
-                    //UIManager.Instance.ShowOverlap<OverlapFade>();
-                    UIManager.Instance.ShowScreen<ScreenGame>();
-                }
+                sldLoading.value = 1f;
+                txtLoading.text = $"Press space bar to continue";
 
-                asyncOperation.allowSceneActivation = true;
-                this.Hide();
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    this.Hide();
+                    if (UIManager.HasInstance)
+                    {
+                        UIManager.Instance.ShowOverlap<OverlapFade>();
+
+                        OverlapFade overlapFade = UIManager.Instance.GetExistOverlap<OverlapFade>();
+
+                        overlapFade.Fade(
+                            fadeTime: 1f,
+                            onDuringFade: () =>
+                            {
+                                asyncOperation.allowSceneActivation = true;
+                            },
+                            onFinish: () =>
+                            {
+                                UIManager.Instance.ShowScreen<ScreenGame>();
+                                overlapFade.Hide();
+                            });
+                    }
+                } 
             }
 
             yield return null;

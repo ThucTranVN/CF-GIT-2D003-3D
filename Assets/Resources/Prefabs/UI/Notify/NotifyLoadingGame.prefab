@@ -1525,6 +1525,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SliderLoading
       objectReference: {fileID: 0}
+    - target: {fileID: 3497763520819797699, guid: 734e48014f20345e3a458b980e528eb5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 3497763520819797699, guid: 734e48014f20345e3a458b980e528eb5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 68
+      objectReference: {fileID: 0}
     - target: {fileID: 3698251146317530049, guid: 734e48014f20345e3a458b980e528eb5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
