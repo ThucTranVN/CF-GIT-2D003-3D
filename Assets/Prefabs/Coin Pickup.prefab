@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 6707292448177956929}
   - component: {fileID: 2583921978747222103}
   - component: {fileID: 6602012944087971641}
+  - component: {fileID: 1512330936826044530}
   m_Layer: 0
   m_Name: Coin Pickup
   m_TagString: Untagged
@@ -99,6 +100,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf38027d3d44240759541d9a2bb065be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1512330936826044530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4035100765017671054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f25a5e548944f95bbd48b1e28f1c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1694912161939874891

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelGenerator : MonoBehaviour
+public class LevelGenerator : BaseManager<LevelGenerator>
 {
     [SerializeField]
     private GameObject chunkPrefab;
@@ -13,6 +13,8 @@ public class LevelGenerator : MonoBehaviour
     private float chunkLength = 1f;
     [SerializeField]
     private float chunkMoveSpeed = 8f;
+    [SerializeField]
+    private float minMoveSpeed = 2f;
 
     private List<GameObject> chunks = new();
 
@@ -24,6 +26,23 @@ public class LevelGenerator : MonoBehaviour
     void Update()
     {
         MoveChunk();
+    }
+
+    public void ChangeChunkMoveSpeed(float speedAmount)
+    {
+        chunkMoveSpeed += speedAmount;
+
+        if(chunkMoveSpeed < minMoveSpeed)
+        {
+            chunkMoveSpeed = minMoveSpeed;
+        }
+
+        Physics.gravity = new Vector3(Physics.gravity.x, Physics.gravity.y, Physics.gravity.z - speedAmount);
+
+        if (CameraController.HasInstance)
+        {
+            CameraController.Instance.ChangeCameraFOV(speedAmount);
+        }
     }
 
     private void SpawnStartingChunks()

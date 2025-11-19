@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Pickup : MonoBehaviour
+public abstract class Pickup : MonoBehaviour
 {
     private const string playerTag = "Player";
 
@@ -9,6 +9,10 @@ public class Pickup : MonoBehaviour
         if (other.gameObject.CompareTag(playerTag))
         {
             //Debug.Log(other.gameObject.name);
+            OnPickUp();
+            Destroy(gameObject);
         }
     }
+
+    protected abstract void OnPickUp();
 }
