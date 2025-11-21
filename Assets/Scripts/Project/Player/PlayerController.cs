@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : BaseManager<PlayerController>
 {
     [SerializeField]
     private float moveSpeed = 5f;
@@ -12,8 +12,10 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
     private Rigidbody rigidbody;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         rigidbody = GetComponent<Rigidbody>();
     }
 
