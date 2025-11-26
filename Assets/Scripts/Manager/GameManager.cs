@@ -1,4 +1,7 @@
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class GameManager : BaseManager<GameManager>
 {
@@ -50,5 +53,24 @@ public class GameManager : BaseManager<GameManager>
         {
             PlayerController.Instance.enabled = false;
         }
+
+        if (UIManager.HasInstance)
+        {
+            UIManager.Instance.ShowPopup<PopupReward>();
+        }
+
+        if (ListenerManager.HasInstance)
+        {
+            ListenerManager.Instance.UnregisterAll(null);
+        }
+    }
+
+    public void ExitGame()
+    {
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }

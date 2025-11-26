@@ -4,9 +4,13 @@ using UnityEngine;
 public class LevelGenerator : BaseManager<LevelGenerator>
 {
     [SerializeField]
-    private GameObject chunkPrefab;
+    private GameObject checkpointChunkPrefab;
+    [SerializeField]
+    private GameObject[] chunkPrefabs;
     [SerializeField]
     private int startingChunksAmount = 12;
+    [SerializeField]
+    private int checkpointChunkInterval = 8;
     [SerializeField]
     private Transform chunkParent;
     [SerializeField]
@@ -17,6 +21,7 @@ public class LevelGenerator : BaseManager<LevelGenerator>
     private float minMoveSpeed = 2f;
 
     private List<GameObject> chunks = new();
+    private int chunksSpawned;
 
     void Start()
     {
@@ -56,11 +61,27 @@ public class LevelGenerator : BaseManager<LevelGenerator>
     private void SpawnChunk()
     {
         float spawnPositionZ = CalculateSpawnPosition();
-
         Vector3 chunkSpawnPoint = new Vector3(transform.position.x, transform.position.y, spawnPositionZ);
+        GameObject chunkToSpawn = ChooseChunkToSpawn();
+        GameObject newChunkGo = Instantiate(chunkToSpawn, chunkSpawnPoint, Quaternion.identity, chunkParent);
+        chunks.Add(newChunkGo);
+        chunksSpawned++;
+    }
 
-        GameObject newChunk = Instantiate(chunkPrefab, chunkSpawnPoint, Quaternion.identity, chunkParent);
-        chunks.Add(newChunk);
+    private GameObject ChooseChunkToSpawn()
+    {
+        GameObject chunkToSpawn;
+
+        if (chunksSpawned % checkpointChunkInterval == 0 && chunksSpawned != 0)
+        {
+            chunkToSpawn = checkpointChunkPrefab;
+        }
+        else
+        {
+            chunkToSpawn = chunkPrefabs[Random.Range(0, chunkPrefabs.Length)];
+        }
+
+        return chunkToSpawn;
     }
 
     private float CalculateSpawnPosition()

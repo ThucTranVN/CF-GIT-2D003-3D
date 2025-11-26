@@ -37,7 +37,7 @@ public class CameraController : BaseManager<CameraController>
         while (elapsedTime < zoomDuration)
         {
             float t = elapsedTime / zoomDuration;
-            elapsedTime += Time.deltaTime;
+            elapsedTime += Time.fixedUnscaledDeltaTime;
 
             cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(startFOV, targetFOV, t);
             yield return null;

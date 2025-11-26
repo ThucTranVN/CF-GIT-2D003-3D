@@ -483,7 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ebbfd5fc482642bf9d5466472356b88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 5
+  startTime: 50
 --- !u!4 &311787714
 Transform:
   m_ObjectHideFlags: 0
@@ -528,10 +528,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1461ad50c0b64b40a3f850054a413ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chunkPrefab: {fileID: 2707518893321602285, guid: dd460ed0e9ecf40b58c0ac22f108861d, type: 3}
+  checkpointChunkPrefab: {fileID: 8931428243414505396, guid: c6075e93e044c42a39c6274310c1f6f5, type: 3}
+  chunkPrefabs:
+  - {fileID: 2707518893321602285, guid: dd460ed0e9ecf40b58c0ac22f108861d, type: 3}
+  - {fileID: 1344613325316005585, guid: 1b2041eec78df4f269ac8c0295d51880, type: 3}
+  - {fileID: 1074931735719799583, guid: efb33e793395c440cba40d888a8a969f, type: 3}
+  - {fileID: 583987695365673030, guid: bb60a45e9e9e445cfa4eb77f87b959c8, type: 3}
+  - {fileID: 8738805879222321927, guid: 8c995560e618448c5b2ea64bdc4ae6ab, type: 3}
+  - {fileID: 6288935479279453723, guid: 7d9f629e388e84eb38a498dcc6279b78, type: 3}
+  - {fileID: 2707518893321602285, guid: dd460ed0e9ecf40b58c0ac22f108861d, type: 3}
+  - {fileID: 583987695365673030, guid: bb60a45e9e9e445cfa4eb77f87b959c8, type: 3}
   startingChunksAmount: 12
+  checkpointChunkInterval: 8
   chunkParent: {fileID: 1075916107}
-  chunkLength: 10
+  chunkLength: 36
   chunkMoveSpeed: 8
   minMoveSpeed: 2
 --- !u!4 &390740635
@@ -1770,7 +1780,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
