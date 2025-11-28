@@ -13,5 +13,10 @@ public class CoinPickup : Pickup
         {
             ScoreManager.Instance.IncreaseScore(cointAmount);
         }
+
+        if (pickupEffect != null)
+        {
+            Instantiate(pickupEffect, spawnEffectPosition.position, Quaternion.identity);
+        }
     }
 }

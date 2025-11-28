@@ -28,6 +28,11 @@ public class GameManager : BaseManager<GameManager>
         DecreaseTime();
     }
 
+    public void IncreaseTime(float amount)
+    {
+        timeLeft += amount;
+    }
+
     private void DecreaseTime()
     {
         if (isGameOver) return;

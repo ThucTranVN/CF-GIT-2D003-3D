@@ -2,15 +2,11 @@ using UnityEngine;
 
 public class FruitPickup : Pickup
 {
-    [SerializeField]
-    private float adjustChangeMoveSpeedAmount = 3f;
-
     protected override void OnPickUp()
     {
-        Debug.Log("Add 100 energy");
-        if (LevelGenerator.HasInstance)
+        if (pickupEffect != null)
         {
-            LevelGenerator.Instance.ChangeChunkMoveSpeed(adjustChangeMoveSpeedAmount);
+            Instantiate(pickupEffect, spawnEffectPosition.position, Quaternion.identity);
         }
     }
 }
