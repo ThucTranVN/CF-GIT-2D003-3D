@@ -1,7 +1,5 @@
 using UnityEngine;
 using Unity.Cinemachine;
-using Unity.VisualScripting;
-using UnityEditor.ShaderGraph.Internal;
 
 public class Bomb : MonoBehaviour
 {

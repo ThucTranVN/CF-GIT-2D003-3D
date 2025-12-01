@@ -17,3 +17,9 @@ public enum UIType
     Notify = 3,
     Overlap = 4
 }
+
+public enum AIStateID
+{
+    Idle = 0,
+    ChasePlayer = 1
+}
